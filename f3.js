@@ -55,6 +55,9 @@ mkdirp(folder, function(error) {
     fs.writeFileSync(path.join(folder, 'f3.bsub'), f3bsub, encoding);
 
     var sh = spawn('sh', [path.join(folder, 'f3.sh')]);
+    sh.on('close', function(code) {
+        console.log(code);
+    });
 
-    console.log(token);
+    console.log(folder);
 });
