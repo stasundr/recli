@@ -5,7 +5,7 @@ module.exports = {
     history: '/home/sd245/history/',
 
     geno: '/groups/reich/DAVID/V8.2/V8.2.2/1240k_HO.geno',
-    ind:  '/groups/reich/DAVID/V8.2/V8.2.2/1240k_HO.ind',
+    ind:  '/home/sd245/crossroad/V8.2.2_1240k_HO_crossroad.ind',
     snp:  '/groups/reich/DAVID/V8.2/V8.2.2/1240k_HO.snp',
 
     f3: '/home/np29/bin/qp3Pop'
