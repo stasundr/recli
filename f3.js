@@ -16,7 +16,7 @@ var folder = config.history + token;
 var encoding = { encoding: 'ascii' };
 
 // prepare files
-var f3sh = '#!/usr/bin/env bash\n\nbsub -q short -W 720 -u ' + config.mail + ' < f3.bsub'
+var f3sh = '#!/usr/bin/env bash\n\nbsub -q short -W 720 -u ' + config.mail + ' < ' + path.join(folder, 'f3.bsub')
     + '\n echo ' + path.join(folder, 'f3.out');
 
 var f3bsub = config.f3 + ' -p ' + path.join(folder, 'f3.par') + ' > ' + path.join(folder, 'f3.out');
