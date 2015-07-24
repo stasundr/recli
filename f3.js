@@ -4,7 +4,7 @@ var config = require('./config');
 
 // dependencies
 var mkdirp = require('mkdirp');
-var Set = require("collections/set");
+var Set = require('collections/set');
 var fs = require('fs');
 var spawn = require('child_process').spawn;
 var crypto = require('crypto');
@@ -44,6 +44,15 @@ pref3pfn.forEach(function(s) {
 });
 f3pfn = f3pfn.join('\n');
 
+var f3gnuplot = 'set terminal png size 1024, 768 \n'
+    + 'set output "' + path.join(folder, 'f3.png') +'" \n'
+    + 'set xrange [0:0.2] \n'
+    + 'set xtics rotate \n'
+    + 'set tics rotate \n'
+    + 'plot "'
+    + path.join(folder, 'f3gnuplot.txt') + '" u 1:2:3:4:5 w candlesticks fs solid 0.7 lt 7 notitle, "'
+    + path.join(folder, 'f3gnuplot.txt') + '" u 1:6:xticlabels(7) w points pt 7 lt 3 notitle';
+
 // mkdir, save files, run
 mkdirp(folder, function(error) {
     if (error) throw error;
@@ -52,12 +61,11 @@ mkdirp(folder, function(error) {
     fs.writeFileSync(path.join(folder, 'f3.par'), f3par, encoding);
     fs.writeFileSync(path.join(folder, 'f3.pfn'), f3pfn, encoding);
     fs.writeFileSync(path.join(folder, 'f3.bsub'), f3bsub, encoding);
+    fs.writeFileSync(path.join(folder, 'f3.gnuplot'), f3gnuplot, encoding);
 
     var sh = spawn('bash', [path.join(folder, 'f3.sh')]);
 
     console.log(folder);
 
-    // curl'ом отправлять на сервер с elasticsearch
-    //'\n\ncurl -F "evec=@./smartpca.evec" -F "task=' +  token + '" ' + geneticAtlas + '/addfile';
-    //
+    //'curl -F "evec=@./smartpca.evec" -F "task=' +  token + '" ' + geneticAtlas + '/addfile';
 });
