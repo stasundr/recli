@@ -20,5 +20,5 @@ var populations = new Set (
     });
 
 populations.forEach(function(population) {
-    spawn('f3.js', [population, 'X', process.argv[2]])
+    spawn('node', ['f3.js', population, 'X', process.argv[2]])
 });
