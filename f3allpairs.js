@@ -3,6 +3,8 @@
 // Использование: f3allpairs.js target
 // Для каждой популяции из *ind файла (указанного в config.js) запускает f3.js any_population_A any_population_B target
 
+var config = require('./config');
+
 var Set = require('collections/set');
 var spawn = require('child_process').spawn;
 
