@@ -8,6 +8,12 @@ var config = require('./config');
 var Set = require('collections/set');
 var spawn = require('child_process').spawn;
 
+function sleep(time, callback) {
+    var stop = new Date().getTime();
+    while(new Date().getTime() < stop + time) {  }
+    callback();
+}
+
 var populations = new Set (
     require('fs')
         .readFileSync(config.ind, { encoding: 'ascii' })
@@ -20,5 +26,7 @@ var populations = new Set (
     });
 
 populations.forEach(function(population) {
-    spawn('node', ['f3.js', population, 'X', process.argv[2]])
+    sleep(1000, function() {
+        spawn('node', ['f3.js', population, 'X', process.argv[2]])
+    });
 });
