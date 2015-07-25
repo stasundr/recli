@@ -7,7 +7,7 @@ var spawn = require('child_process').spawn;
 
 var encoding = { encoding: 'ascii' };
 
-var f3gnuplot = fs
+var data = fs
     .readFileSync(process.argv[2], encoding)
     .split('\n')
     .filter(function(s) { return s !== '' })
@@ -20,6 +20,9 @@ var f3gnuplot = fs
         .replace(process.argv[4] + ', ', '')
     });
 
-console.log(f3gnuplot.join('\n'));
+var fontHeight = 15;
+var f3gnuplot = fs.readFileSync('f3.gnuplot', encoding).replace('WIDTH', data.length*fontHeight);
+
+fs.writeFileSync('f3.gnuplot', f3gnuplot, encoding);
 
 //var gnuplot = spawn(config.gnuplot, ['f3.gnuplot']);

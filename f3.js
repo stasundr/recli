@@ -44,7 +44,7 @@ pref3pfn.forEach(function(s) {
 });
 f3pfn = f3pfn.join('\n');
 
-var f3gnuplot = 'set terminal png size 1024, 768 \n'
+var f3gnuplot = 'set terminal png size WIDTH, 768 \n'
     + 'set output "' + path.join(folder, 'f3.png') +'" \n'
     + 'set xrange [0:0.2] \n'
     + 'set xtics rotate \n'
