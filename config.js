@@ -1,7 +1,7 @@
 path = require('path');
 
 module.exports = {
-    mail: 'stasundr@gmail.com',
+    mail: 'zogmeil@gmail.com',
     history: '/home/sd245/history/',
 
     geno: '/groups/reich/DAVID/V8.2/V8.2.2/1240k_HO.geno',
