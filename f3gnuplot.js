@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 var config = require('./config');
 
 var fs = require('fs');

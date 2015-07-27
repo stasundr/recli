@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 // Использование: f3allpairs.js target
 // Для каждой популяции из *ind файла (указанного в config.js) запускает f3.js any_population_A any_population_B target
 
